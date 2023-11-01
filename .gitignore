@@ -1,0 +1,7 @@
+# ignore file .sav inside models folder
+models/
+temp/
+data/
+cropped_image/
+dataset/
+lib/__pycache__/
