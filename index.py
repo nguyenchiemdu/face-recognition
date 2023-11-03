@@ -73,7 +73,7 @@ class FaceRecognitionApp:
         self.captured_frames_text.config(text=f"Captured Frames: {self.captured_frames}")
         ret, frame = self.vid.read()
         cv2.imwrite(f"./data/{user_name}-{user_id}/{user_name}-{user_id}-{self.captured_frames}.jpg", frame)
-        if self.captured_frames < 3:
+        if self.captured_frames < 30:
             self.window.after(1000, self.loop_capture, user_name,user_id)
         else:
             self.captured_frames = 0
@@ -82,9 +82,10 @@ class FaceRecognitionApp:
             self.captured_frames_text.config(text="Done capturing and cropping images")
 
     def close_window(self):
+        pass
         if self.vid.isOpened():
             self.vid.release()
-        self.root.destroy()
+        self.window.destroy()
     def train_model(self):
         model, accuracy = svm_train_model()
         message = "Model trained successfully! Accuracy: %s" % accuracy

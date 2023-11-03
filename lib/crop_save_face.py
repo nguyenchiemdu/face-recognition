@@ -18,7 +18,7 @@ def crop_faces_in_directory(input_dir = './data', output_dir = './cropped_image'
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
             # Detect faces in the image
-            faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+            faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5,minSize = (250,250))
 
             # Crop and save each detected face into the respective student's output folder
             for i, (x, y, w, h) in enumerate(faces):
@@ -41,7 +41,7 @@ def crop_one_face(name,input_path = './data', output_path ='./cropped_image'):
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
         # Detect faces in the image
-        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5,minSize = (250,250))
 
         # Crop and save each detected face into the respective student's output folder
         for i, (x, y, w, h) in enumerate(faces):
