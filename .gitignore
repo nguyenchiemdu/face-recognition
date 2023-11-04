@@ -5,3 +5,4 @@ data/
 cropped_image/
 dataset/
 lib/__pycache__/
+env/
