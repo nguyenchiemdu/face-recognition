@@ -48,3 +48,4 @@ To run this project, follow these steps:
 ## Note
 
 This project relies on proper directory structures and the presence of necessary resources. Ensure that the required folders and files exist before executing specific functions.
+See our report [here](./Report.md)
