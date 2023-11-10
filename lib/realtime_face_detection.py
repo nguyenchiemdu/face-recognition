@@ -58,21 +58,21 @@ def realtime_face_detection():
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
         
         
-        # load saved svm model and predice the face
-        gray_image = gray[y:y+h, x:x+w]
+            # load saved svm model and predice the face
+            gray_image = gray[y:y+h, x:x+w]
 
-        hog_features = get_hog_feature(gray_image)
+            hog_features = get_hog_feature(gray_image)
 
-        # Perform prediction using the loaded SVM model
-        predicted_student = loaded_svm.predict([hog_features])
-        confidence = loaded_svm.decision_function([hog_features])[0]
-        # get max value of confidence list
-        max_confidence = max(confidence)
-        
-        print("Predicted student:", predicted_student[0])
-        validate_face_detection(predicted_student[0])
-        # Draw the text under the face
-        cv2.putText(frame,  f'{predicted_student[0]}', (x, y+h+20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2) 
+            # Perform prediction using the loaded SVM model
+            predicted_student = loaded_svm.predict([hog_features])
+            confidence = loaded_svm.decision_function([hog_features])[0]
+            # get max value of confidence list
+            max_confidence = max(confidence)
+            
+            print("Predicted student:", predicted_student[0])
+            validate_face_detection(predicted_student[0])
+            # Draw the text under the face
+            cv2.putText(frame,  f'{predicted_student[0]}', (x, y+h+20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2) 
         # Display the resulting frame
         cv2.imshow('Face Detection', frame)
 
